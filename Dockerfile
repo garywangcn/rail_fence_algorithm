@@ -10,7 +10,18 @@ RUN apt-get update && \
     apt-get clean
 
 # Set the working directory inside the container
-WORKDIR /app
+WORKDIR /data
+
+COPY decryption.cpp /data
+COPY encryption.cpp /data
+COPY rail_fence_algorithm.cpp /data
+COPY Makefile /data
+COPY rail_fence_algorithm.h /data
+COPY test.cpp /data
+
+COPY test_rail_fence /data
+COPY decryption /data
+COPY encryption /data 
 
 # The default command to run when starting the container
 CMD ["/bin/bash"]
