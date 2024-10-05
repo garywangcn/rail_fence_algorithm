@@ -1,42 +1,45 @@
-Step 1: Change path to source code folder, Dockerfile, source code and binary are here
+# Step 1: Change path to source code folder, Dockerfile, source code and binary are here
+```bash
      cd ~/rail_fence_algorithm
+```
+# Step 2: Create docker image
+```bash
+     sudo docker build -t ubuntu-22.04 .
+```
 
-Step 2: Create docker image
-     docker build -t ubuntu-22.04
+# Step 3: Run docker with image ubuntu-22.04
+```bash
+     sudo docker run -it ubuntu-22.04
+```
 
-Step 3: Run docker with image ubuntu-22.04
-    docker run -it ubuntu-22.04
+# Step 4(Optional): Rebuild the binary
+```bash
+     make
+```
 
-Step 4(Optional): Rebuild the binary
-    make
-
-Step 5: Run test binary to test both encryption and decryption functions
-
-    root@86ac02f3e580:/data# ./test_rail_fence
-    Running main() from ./googletest/src/gtest_main.cc
-    [==========] Running 3 tests from 1 test suite.
-    [----------] Global test environment set-up.
-    [----------] 3 tests from RailFenceAlgorithmTest
-    [ RUN      ] RailFenceAlgorithmTest.EncryptionTest1
-    [       OK ] RailFenceAlgorithmTest.EncryptionTest1 (0 ms)
-    [ RUN      ] RailFenceAlgorithmTest.EncryptionTest2
-    [       OK ] RailFenceAlgorithmTest.EncryptionTest2 (0 ms)
-    [ RUN      ] RailFenceAlgorithmTest.EncryptionTest3
-    [       OK ] RailFenceAlgorithmTest.EncryptionTest3 (0 ms)
-    [----------] 3 tests from RailFenceAlgorithmTest (0 ms total)
-    
-    [----------] Global test environment tear-down
-    [==========] 3 tests from 1 test suite ran. (0 ms total)
-    [  PASSED  ] 3 tests.
-
-Step 6: Test encryption function manually
-
-    root@a538f979f926:/data# ./encryption
+# Step 5: Run test binary to test both encryption and decryption functions
+```bash
+    # ./test_rail_fence
+    <output>
+```
+# Step 6: Test encryption function manually
+```bash
+    # ./encryption
     please input the plaintxt:abcdefgh
     please input the depth:2
     please input the repeat:1
     Encrypt the plaintxt with depth 2 and repeat 1 times...
     Plaintxt : abcdefgh
     Chipertxt: acegbdfh
+```
 
-Step 7: Test decryption function manually
+# Step 7: Test decryption function manually
+```bash
+    # ./decryption
+    please input the Cipertxt:acegbdfh
+    please input the depth:2
+    please input the repeat:1
+    Decrypt the cipertxt with depth 2 and repeat 1 times...
+    Chipertxt : acegbdfh
+    Plaintxt: abcdefgh
+```
