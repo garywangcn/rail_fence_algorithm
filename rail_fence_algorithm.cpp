@@ -6,7 +6,6 @@
 
 using namespace std;
 
-
 static void rail_fence_encryption_single(string &src, string &dst, int depth)
 {
     string rows[depth];
@@ -27,12 +26,28 @@ static void rail_fence_encryption_single(string &src, string &dst, int depth)
         dst.append(rows[row]);
     } 
 }
-static void rail_fence_decryption_single(string &src, string &dst, int depth){
-   if (depth == 1) {
+
+void rail_fence_encryption(string &plaintxt, string &cipher, int depth, int repeat)
+{
+    string src = plaintxt;
+    string dst;
+    do {
+        dst.clear();
+        rail_fence_encryption_single(src, dst, depth); 
+        src = dst;
+    } while (--repeat > 0);
+
+    cipher = dst;
+}
+
+static void rail_fence_decryption_single(string &src, string &dst, int depth)
+{
+    int n = src.length();
+
+    if (depth == 1) {
         dst = src;
         return;
     }
-    int n = src.length();
 
     // Declare  a 2D vector 
     vector<vector<char>> rows(depth, vector<char>(n, '\0'));
@@ -72,20 +87,6 @@ static void rail_fence_decryption_single(string &src, string &dst, int depth){
             direc = -direc;  
         }
     } 
-
-}
-
-void rail_fence_encryption(string &plaintxt, string &cipher, int depth, int repeat)
-{
-    string src = plaintxt;
-    string dst;
-    do {
-        dst.clear();
-        rail_fence_encryption_single(src, dst, depth); 
-        src = dst;
-    } while (--repeat > 0);
-
-    cipher = dst;
 }
 
 void rail_fence_decryption(string &cipher, string &plaintxt, int depth, int repeat)
