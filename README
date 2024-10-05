@@ -2,7 +2,7 @@ Step 1: Change path to source code folder, Dockerfile, source code and binary ar
      cd ~/rail_fence_algorithm
 
 Step 2: Create docker image
-     docker image rm ubuntu-22.04
+     docker build -t ubuntu-22.04
 
 Step 3: Run docker with image ubuntu-22.04
     docker run -it ubuntu-22.04
