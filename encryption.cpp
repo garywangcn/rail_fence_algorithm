@@ -30,6 +30,6 @@ int main(void)
     rail_fence_encryption(plaintxt, cipher, depth, repeat);
 
     std::cout << "Plaintxt : " << plaintxt << std::endl;
-    std::cout << "Chipertxt: " << cipher << std::endl;
+    std::cout << "Cipertxt: " << cipher << std::endl;
     return 0;
 }

@@ -9,12 +9,12 @@ using namespace std;
 
 int main(void)
 {
-    string plaintxt;
+    string Cipertxt;
     int depth = 0;
     int repeat = 0;
    
-    std::cout << "please input the plaintxt:"; 
-    std::getline(std::cin, plaintxt);
+    std::cout << "please input the Cipertxt:"; 
+    std::getline(std::cin, Cipertxt);
 
     std::cout << "please input the depth:"; 
     std::cin >> depth;
@@ -22,14 +22,14 @@ int main(void)
     std::cout << "please input the repeat:"; 
     std::cin >> repeat;
 
-    std::cout << "Encrypt the plaintxt with depth " << depth << " and repeat " << repeat << " times..." << std::endl;
+    std::cout << "Decrypt the cipertxt with depth " << depth << " and repeat " << repeat << " times..." << std::endl;
 
-    string src = plaintxt;
-    string cipher;
+    string src = Cipertxt;
+    string Plaintxt;
 
-    rail_fence_encryption(plaintxt, cipher, depth, repeat);
+    rail_fence_decryption(Cipertxt, Plaintxt, depth, repeat);
 
-    std::cout << "Plaintxt : " << plaintxt << std::endl;
-    std::cout << "Chipertxt: " << cipher << std::endl;
+    std::cout << "Chipertxt : " << Cipertxt << std::endl;
+    std::cout << "Plaintxt: " << Plaintxt << std::endl;
     return 0;
 }
